@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Formular</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+  
+<h1>Formular</h1>
+
+<form action="mailto:reh250625@spengergasse.at?subject=Mein Formular" method="post" enctype="text/plain">
+
+    <label for="vorname">Vorname:</label>
+    <input type="text" id="vorname" name="vorname" required>
+<br>
+    <label for="nachname">Nachname:</label>
+    <input type="text" id="nachname" name="nachname" required>
+<br> 
+<label for="geburtsdatum">Geburtsdatum:</label>
+<input type="date" id="geburtsdatum" name="geburtsdatum">
+<br>
+<p>Geschlecht:</p>
+    <label for="maeennlich">Männlich</label>
+    <input type="radio" id="maeennlich" name="geschlecht" value="maeennlich" required>
+<br>
+    <label for="weiblich">Weiblich</label>
+    <input type="radio" id="weiblich" name="geschlecht" value="weiblich"> 
+<br>
+<p>Hobby:</p>
+    <label for="sport">Sport</label>
+    <input type="checkbox" id="sport" name="hobby" value="sport">
+<br>
+    <label for="musik">Musik</label>
+    <input type="checkbox" id="musik" name="hobby" value="musik"> 
+<br>
+    <label for="lesen">Lesen</label>
+    <input type="checkbox" id="lesen" name="hobby" value="lesen">
+<br>
+<p>Land:</p>
+    <label for="land"></label>
+    <select id="land" name="land">
+        <option value="">Bitte wählen</option>
+        <option value="at">Österreich</option>
+        <option value="de">Deutschland</option>
+        <option value="ch">Schweiz</option>
+        <option value="it">Italien</option>
+    </select>
+ <br>
+    <label for="sprachen">Sprachen:</label>
+    <select id="sprachen" name="sprachen" multiple>
+        <option value="de">Deutsch</option>
+        <option value="en">Englisch</option>
+        <option value="fr">Französisch</option>
+        <option value="it">Italienisch</option>
+        <option value="es">Spanisch</option>
+        <option value="ru">Russisch</option>
+        <option value="jp">Japanisch</option>
+    </select>
+<br>
+    <label for="adresse">Adresse:</label><br>
+    <textarea id="adresse" name="adresse" rows="3" cols="30" placeholder="Straße, PLZ, Ort"></textarea>
+ <br>
+    <label for="email">E-Mail:</label>
+    <input type="email" id="email" name="email" placeholder="name@beispiel.at">
+<br>
+<label for="telefon">Telefon:</label>
+<input type="tel" id="telefon" name="telefon"
+       pattern="[0-9]{8,15}">
+<br>
+
+<input type="submit" value="Absenden">
+</form>
+</body>
+</html>
