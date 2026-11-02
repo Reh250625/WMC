@@ -53,8 +53,8 @@ img {
 
 .profilbild {              
   border-radius: 50%;
-  border: 5px solid #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 0.3rem solid #fff;
+  box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.3);
 }
 
 
@@ -65,16 +65,6 @@ p {
 
 h2 {
   color: rgb(120, 60, 110);
-}
-
-
-.box {
-  width: 200px;
-  height: 200px;
-  margin: 1rem;
-  padding: 1rem;
-  background-color: #f4f1ea;
-  border: 2px solid rgb(120, 60, 110);
 }
 
 .sprachen {
@@ -91,12 +81,6 @@ h2 {
   color: rgb(120, 60, 110);
   border-radius: 2rem;
   font-size: 0.9rem;
-}
-
-
-.hobbys {
-  list-style-type: circle;
-  padding-left: 1.5rem;
 }
 
 .karte {

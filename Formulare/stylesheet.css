@@ -37,3 +37,14 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #1e40af;
 }
+
+fieldset {
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 10px;
+}
