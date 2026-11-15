@@ -1,0 +1,28 @@
+/* a) alle section in article.testbereich, deren data-topic mit "css-adv" beginnt */
+article.testbereich section[data-topic^="css-adv"] {
+    border: 2px dashed red;
+}
+
+/* b) nur der dritte Listeneintrag, darin der direkte Link */
+article.testbereich section[data-topic^="css-adv"] li:nth-child(3) > a {
+    color: green;
+    font-weight: bold;
+    transition: color 1s;
+}
+
+article.testbereich section[data-topic^="css-adv"] li:nth-child(3) > a:hover {
+    color: red;
+}
+
+/* c) zweite Datenzeile hervorheben, letzte Zeile mit oberem Rahmen */
+table.preise {
+    border-collapse: collapse;   /* sonst ist der Rahmen an tr unsichtbar */
+}
+
+table.preise tr:nth-child(3) {   /* Zeile 1 = Kopfzeile, Zeile 3 = Hauptgericht */
+    background: #fff4cc;
+}
+
+table.preise tr:last-child {
+    border-top: 2px solid #888;
+}
