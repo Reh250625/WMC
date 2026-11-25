@@ -1,0 +1,207 @@
+/* KM3-05 Flexbox – Beispiel 1: Merch-Stand "NACHTFALTER"
+   Design-Idee: elegant in Beige und Gold.
+   Regel eingehalten: kein height, kein position. */
+
+:root {
+    --beige: #f5efe4;
+    --beige-hell: #fffaf3;
+    --gold: #c9a24a;
+    --gold-dunkel: #9a7426;
+    --text: #3b3024;
+    --text-leise: #76695a;
+    --rahmen: #e4d7bf;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Verdana, Tahoma, sans-serif;
+    background: var(--beige);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+h1, h2 {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* a) Kopfleiste
+   Logo links, Links rechts, senkrecht mittig, 1.5rem Abstand */
+.leiste {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.2rem 2.5rem;
+    background: var(--beige-hell);
+    border-bottom: 3px solid var(--gold);
+}
+
+.logo {
+    font-weight: bold;
+    letter-spacing: 0.3em;
+    color: var(--gold-dunkel);
+}
+
+.links {
+    display: flex;
+    gap: 1.5rem;
+    margin-left: auto;   /* automatischer Rand nimmt den ganzen freien Platz -> Nav geht nach rechts */
+}
+
+.links a {
+    color: var(--text);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    border-bottom: 2px solid transparent;
+}
+
+.links a:hover {
+    color: var(--gold-dunkel);
+    border-bottom-color: var(--gold);
+}
+
+/* b) Hero
+   Bild genau 14rem breit und quadratisch, Text nimmt den Rest */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 3rem 2.5rem;
+}
+
+.bild {
+    flex: 0 0 14rem;     /* grow 0, shrink 0, basis 14rem -> bleibt immer 14rem */
+    aspect-ratio: 1;     /* Hoehe = Breite, ohne height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-leise);
+    background: radial-gradient(circle, #fbf3e0, #eadcc0);
+    border: 2px solid var(--gold);
+    border-radius: 50% 50% 12px 12px;   /* oben rund wie eine Lampe */
+}
+
+.text {
+    flex: 1 1 20rem;     /* waechst und nimmt den restlichen Platz */
+}
+
+.text h1 {
+    margin: 0 0 0.5rem;
+    font-size: 2.4rem;
+    color: var(--gold-dunkel);
+}
+
+.text p {
+    margin: 0 0 1.2rem;
+    color: var(--text-leise);
+}
+
+.knopf {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    background: var(--gold);
+    color: var(--text);
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.knopf:hover {
+    background: var(--gold-dunkel);
+    color: #ffffff;
+}
+
+/* c) Produktstreifen
+   Karten nebeneinander, gleich hoch, Wunschbreite 14rem */
+.streifen {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 0 2.5rem 3rem;
+    /* align-items: stretch ist der Standard -> gleiche Hoehe automatisch */
+}
+
+.karte {
+    flex: 1 1 14rem;
+    display: flex;
+    flex-direction: column;   /* die Karte selbst ist eine Spalte */
+    gap: 0.6rem;
+    padding: 1.3rem;
+    background: var(--beige-hell);
+    border: 1px solid var(--rahmen);
+    border-top: 4px solid var(--gold);
+    border-radius: 6px;
+}
+
+.karte-kopf {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;   /* Ueberschrift links, Badge rechts */
+}
+
+.karte h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.karte p {
+    margin: 0;
+    color: var(--text-leise);
+}
+
+.badge {
+    padding: 0.15rem 0.7rem;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--text);
+    border-radius: 4px;
+}
+
+.karte .preis {
+    margin-top: auto;   /* frisst den Platz darueber -> Preis klebt unten */
+    padding-top: 0.6rem;
+    border-top: 1px dashed var(--rahmen);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--gold-dunkel);
+}
+
+/* d) Schmal: unter 700 px */
+@media (max-width: 700px) {
+    .leiste {
+        flex-wrap: wrap;          /* Kopfleiste darf umbrechen */
+        padding: 1rem 1.5rem;
+    }
+
+    .links {
+        margin-left: 0;
+    }
+
+    .hero {
+        flex-direction: column;   /* Bild oben, Text darunter */
+        align-items: stretch;
+        padding: 2rem 1.5rem;
+    }
+
+    .bild {
+        flex: none;
+        aspect-ratio: 16 / 9;     /* jetzt Breitformat */
+        border-radius: 12px;
+    }
+
+    .text {
+        flex: none;               /* sonst waere flex-basis in der Spalte eine Hoehe */
+    }
+
+    .streifen {
+        padding: 0 1.5rem 2rem;
+    }
+}
